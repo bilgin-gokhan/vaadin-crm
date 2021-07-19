@@ -28,7 +28,8 @@ public class DashboardView extends VerticalLayout {
 		addClassName("dashboard-view");
 		setDefaultHorizontalComponentAlignment(Alignment.CENTER);
 
-		add(getContactStats(), getCompaniesChart());
+		add(getContactStats());
+//		add(getContactStats(), getCompaniesChart());
 	}
 
 	private Component getContactStats() {
@@ -37,13 +38,13 @@ public class DashboardView extends VerticalLayout {
 		return stats;
 	}
 
-	private Chart getCompaniesChart() {
-		Chart chart = new Chart(ChartType.PIE);
-		DataSeries dataSeries = new DataSeries();
-		Map<String, Integer> companies = companyService.getStats();
-		companies.forEach((company, employees) -> dataSeries.add(new DataSeriesItem(company, employees)));
-		chart.getConfiguration().setSeries(dataSeries);
-		return chart;
-	}
+//	private Chart getCompaniesChart() {
+//		Chart chart = new Chart(ChartType.PIE);
+//		DataSeries dataSeries = new DataSeries();
+//		Map<String, Integer> companies = companyService.getStats();
+//		companies.forEach((company, employees) -> dataSeries.add(new DataSeriesItem(company, employees)));
+//		chart.getConfiguration().setSeries(dataSeries);
+//		return chart;
+//	}
 
 }
