@@ -1,5 +1,8 @@
 package com.vaadin.tutorial.crm.ui.view.list;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
@@ -15,14 +18,16 @@ import com.vaadin.tutorial.crm.backend.service.CompanyService;
 import com.vaadin.tutorial.crm.backend.service.ContactService;
 import com.vaadin.tutorial.crm.ui.MainLayout;
 
+@Component
+@Scope("prototype")
 @Route(value = "", layout = MainLayout.class)
 @PageTitle("Contacts | Vaadin CRM")
 public class ListView extends VerticalLayout {
 
-	private ContactService contactService;
-	private Grid<Contact> grid = new Grid<>(Contact.class);
-	private TextField filterText = new TextField();
-	private ContactForm form;
+	ContactService contactService;
+	Grid<Contact> grid = new Grid<>(Contact.class);
+	TextField filterText = new TextField();
+	ContactForm form;
 
 	public ListView(ContactService contactService, CompanyService companyService) {
 		this.contactService = contactService;
